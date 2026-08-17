@@ -47,5 +47,35 @@ public class Estudante {
         }
         return menor;
     }
+
+// + aprovados – recebe um array de estudantes e devolve só aqueles aprovados (média >= 6)
+    public static Estudante[] aprovados(Estudante[] estudantes) {
+        if (estudantes == null || estudantes.length == 0) {
+            return null;
+        }
+
+        int quantidadeAprovados = 0;
+        for (Estudante estudante : estudantes) {
+            if (estudante != null && estudante.calculaMedia() >= 6) {
+                quantidadeAprovados++;
+            }
+        }
+
+        if (quantidadeAprovados == 0) {
+            return null;
+        }
+
+        Estudante[] aprovados = new Estudante[quantidadeAprovados];
+        int indice = 0;
+
+        for (Estudante estudante : estudantes) {
+            if (estudante != null && estudante.calculaMedia() >= 6) {
+                aprovados[indice] = estudante;
+                indice++;
+            }
+        }
+
+        return aprovados;
+    }
     
 }
