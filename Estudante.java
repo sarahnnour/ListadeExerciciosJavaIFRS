@@ -77,5 +77,22 @@ public class Estudante {
 
         return aprovados;
     }
+
+    // + calculaMedia – sobrecarga para média ponderada: recebe os pesos das cinco notas
+    public double calculaMedia(int[] pesos) {
+        if (pesos == null || pesos.length != 5) {
+            throw new IllegalArgumentException("O array de pesos deve ter exatamente 5 elementos.");
+        }
+
+        double somaPonderada = 0;
+        double somaPesos = 0;
+
+        for (int i = 0; i < 5; i++) {
+            somaPonderada += nota[i] * pesos[i];
+            somaPesos += pesos[i];
+        }
+
+        return somaPonderada / somaPesos;
+    }
     
 }
